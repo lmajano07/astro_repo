@@ -23,9 +23,7 @@ export default async function fetchApi<T>({
     endpoint = endpoint.slice(1);
   }
 
-  const url = new URL(
-    `https://strapi-production-4fd9.up.railway.app/api/${endpoint}`
-  );
+  const url = new URL(`${import.meta.env.STRAPI_URL}/api/${endpoint}`);
 
   if (query) {
     Object.entries(query).forEach(([key, value]) => {
